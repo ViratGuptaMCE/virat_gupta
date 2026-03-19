@@ -11,9 +11,9 @@ html {
 }
 
 .container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    /* max-width: 1400px; */
+    /* margin: 0 auto; */
 }
 
 .flex-center {

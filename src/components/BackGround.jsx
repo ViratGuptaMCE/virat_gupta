@@ -220,7 +220,7 @@ const App = () => {
   }, []);
 
   return (
-      <canvas ref={canvasRef} className="fixed w-full h-[100vh] -z-1 inset-0 block" /> 
+      <canvas ref={canvasRef} className="fixed w-full h-screen -z-1 inset-0 block" /> 
   );
 };
 

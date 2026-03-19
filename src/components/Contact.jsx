@@ -35,7 +35,7 @@ const ContactSection = () => {
   const currentSection = activeTab ? sections[activeTab] : null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[400px]  p-8 font-sans">
+    <div className="flex flex-col items-center justify-center min-h-100  p-8 font-sans">
       <div className="relative group ">
         {/* Floating Label (Animated Text) */}
         <div
@@ -52,7 +52,7 @@ const ContactSection = () => {
         </div>
 
         {/* Main Pill Address Bar */}
-        <div className="bg-white px-8 py-5 rounded-[2rem] shadow-xl shadow-zinc-200/50 flex items-center justify-center min-w-[320px] border border-zinc-100 relative z-10">
+        <div className="bg-white px-8 py-5 rounded-4xl shadow-xl shadow-zinc-200/50 flex items-center justify-center min-w-[320px] border border-zinc-100 relative z-10">
           <div className="text-2xl font-medium tracking-tight flex whitespace-nowrap">
             {/* Part 1: hello (linked to Mail) */}
 

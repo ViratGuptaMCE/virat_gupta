@@ -15,22 +15,24 @@ function App() {
 
   return (
     <>
-      {/* Site content always renders behind */}
-      <InteractiveBackground />
-      <Scroller>
-        <main>
-          <Header />
-          <Hero />
-          <Skills />
-          <Timeline />
-          <Achievements />
-          <Projects />
-          <Footer />
-        </main>
-      </Scroller>
-
-      {/* Loader on top - window reveals site behind */}
-      {loading && <Loader onComplete={() => setLoading(false)} />}
+      {loading ? (
+        <Loader onComplete={() => setLoading(false)} />
+      ) : (
+        <>
+          <InteractiveBackground />
+          <Scroller>
+            <main>
+              <Header />
+              <Hero />
+              <Skills />
+              <Timeline />
+              <Achievements />
+              <Projects />
+              <Footer />
+            </main>
+          </Scroller>
+        </>
+      )}
     </>
   );
 }

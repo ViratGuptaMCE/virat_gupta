@@ -5,7 +5,10 @@ const Hero = () => {
   const [isMeltHovered, setIsMeltHovered] = useState(false);
 
   return (
-    <main className="container min-h-screen p-4 md:p-12 lg:p-20 font-sans selection:bg-cyan-500 selection:text-black overflow-hidden relative" id="about">
+    <main
+      className=" min-h-screen p-4 md:p-12 lg:p-20 font-sans selection:bg-cyan-500 selection:text-black overflow-hidden relative"
+      id="about"
+    >
       {/* The Gooey Container - Applies the viscous filter to all children */}
       <div className="max-w-7xl mx-auto flex justify-between items-center gap-y-0">
         {/* 1. INTRO – redesigned with dark gradient and code snippet feel */}
@@ -30,7 +33,9 @@ const Hero = () => {
           <section className="w-full p-8 flex flex-col relative group z-20">
             {/* Bio + Academics */}
             <div className="z-10 max-w-lg">
-              <p className="text-yellow-400 uppercase">3rd year undergraduate student</p>
+              <p className="text-yellow-400 uppercase">
+                3rd year undergraduate student
+              </p>
               <strong>Mathematics and Computing Engineering , DTU</strong>
               <br />
               <p className="text-sm font-mono text-zinc-400 leading-relaxed">
@@ -82,12 +87,14 @@ const Hero = () => {
                   : 'path("M144,-40 C223,-40 320,80 288,44 C250,20 223,208 154,228 C64,188 -40,180 0,144 C40,80 64,-40 144,-40 Z")',
               }}
             >
-              <span className="text-3xl font-black uppercase italic leading-none mb-2 transition-colors group-hover:text-[#fff]">
-                Melt <br /> In
+              <span className="text-3xl font-black uppercase italic leading-none mb-2 transition-colors group-hover:text-white">
+                Connect
               </span>
-              <div className="mt-4 bg-black text-white p-3 rounded-full group-hover:scale-125 transition-transform">
-                <ArrowUpRight size={20} />
-              </div>
+              <a href="#contact">
+                <div className="mt-4 bg-black text-white p-3 rounded-full group-hover:scale-125 transition-transform">
+                  <ArrowUpRight size={20} />
+                </div>
+              </a>
             </button>
           </section>
         </div>

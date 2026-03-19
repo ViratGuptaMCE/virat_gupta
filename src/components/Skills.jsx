@@ -88,7 +88,7 @@ export default function Skills() {
     <section
       ref={wrapperRef}
       id="skills"
-      className="container whatido-section"
+      className="whatido-section"
       style={{
         position: "relative",
         padding: "10vh 0",

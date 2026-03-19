@@ -15,23 +15,21 @@ const Achievements = () => {
         description:
           "Top 4 at WeIgnite 2024 – built an AI-powered personal safety application for emergency.",
         metric: "🥇 4th Place · 600+ Participants",
-        image:
-          "/WeIgnite.jfif",
-        color: "from-indigo-900 to-purple-900",
-        accent: "#818cf8",
-        bgColor: "#11061F", // very dark indigo tint
+        image: "/WeIgnite.jfif",
+        color: "from-cyan-900 to-cyan-700", // cyan gradient
+        accent: "#06b6d4", // cyan accent
+        bgColor: "#031a1f", // very dark cyan tint
       },
       {
         id: 2,
-        title: "Leetcode ",
+        title: "Leetcode",
         description:
-          "Solved 600+ problems, achieved  top 7.71% with a contest rating of 1800.",
+          "Solved 600+ problems, achieved top 7.71% with a contest rating of 1800.",
         metric: "🏆 Rating 1800 · Top 7.71%",
-        image:
-          "/leet.png",
-        color: "from-amber-900 to-orange-900",
-        accent: "#fbbf24",
-        bgColor: "#1F1906", // very dark amber
+        image: "/leet.png",
+        color: "from-zinc-900 to-zinc-700", // neutral black/gray gradient
+        accent: "#ffffff", // white accent
+        bgColor: "#0a0a0a", // deep black tint
       },
       {
         id: 3,
@@ -39,11 +37,10 @@ const Achievements = () => {
         description:
           "Consistent performer with a peak rating of 1552 – specialist rank and 15+ contests solved.",
         metric: "Rating 1552 · Specialist",
-        image:
-          "/codeforces.png",
-        color: "from-blue-900 to-cyan-900",
-        accent: "#38bdf8",
-        bgColor: "#061B1F", // very dark blue
+        image: "/codeforces.png",
+        color: "from-cyan-800 to-black", // cyan to black gradient
+        accent: "#22d3ee", // bright cyan accent
+        bgColor: "#041f21", // dark cyan-black blend
       },
       {
         id: 4,
@@ -51,17 +48,15 @@ const Achievements = () => {
         description:
           "CGPA 9.56/10 · Recipient of the DTU Medals and Scholarships for outstanding academic performance.",
         metric: "DIR 3 · CGPA 9.56",
-        image:
-          "/GoldenPride.png",
-        color: "from-rose-900 to-pink-900",
-        accent: "#f472b6",
-        bgColor: "#1a0f14", // very dark pink
+        image: "/GoldenPride.png",
+        color: "from-black to-cyan-900", // black to cyan gradient
+        accent: "#67e8f9", // soft cyan accent
+        bgColor: "#0d1a1f", // dark cyan-black tint
       },
     ],
     [],
   );
 
-  // Effect for Vertical -> Horizontal Scroll Logic
   useEffect(() => {
     const handleScroll = () => {
       if (!horizontalSectionRef.current || !horizontalStickyRef.current) return;
@@ -101,7 +96,7 @@ const Achievements = () => {
       <header className="relative h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         {/* Dynamic gradient overlay based on active achievement */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90"
+          className="absolute inset-0 bg-linear-to-b from-transparent to-black/90"
           style={{
             backgroundImage: `linear-gradient(to bottom, transparent, ${achievements[activeSlide]?.bgColor || "#000"})`,
           }}
@@ -126,10 +121,10 @@ const Achievements = () => {
             {achievements.map((item, idx) => (
               <div
                 key={item.id}
-                className="w-screen h-screen flex-shrink-0 flex items-center justify-center px-12 md:px-32"
+                className="w-screen h-screen shrink-0 flex items-center justify-center px-12 md:px-32"
               >
                 <div
-                  className={`relative w-full max-w-[1200px] aspect-video md:aspect-[21/9] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row bg-gradient-to-br ${item.color} border border-white/10`}
+                  className={`relative w-full max-w-300 aspect-video md:aspect-21/9 rounded-4xl overflow-hidden shadow-2xl flex flex-col md:flex-row bg-linear-to-br ${item.color} border border-white/10`}
                 >
                   {/* Image Content */}
                   <div className="w-full md:w-2/3 relative h-full group">
@@ -170,7 +165,7 @@ const Achievements = () => {
         <span className="text-[8px] font-bold tracking-[0.5em] uppercase text-white/30">
           Scroll
         </span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-white/20 to-transparent" />
+        <div className="w-px h-8 bg-linear-to-b from-white/20 to-transparent" />
       </div>
     </div>
   );

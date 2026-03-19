@@ -80,14 +80,14 @@ export default function Projects() {
         className="relative w-full h-screen overflow-hidden text-white"
       >
         {/* Top UI */}
-        <div className="absolute top-8 left-8 right-8 z-[100] flex justify-between items-center mix-blend-difference">
+        <div className="absolute top-8 left-8 right-8 z-100 flex justify-between items-center mix-blend-difference">
           <div className="text-xl font-black tracking-tighter">PROJECTS.</div>
 
           <div className="flex gap-4 items-center">
             {projects.map((p, i) => (
               <div
                 key={p.id}
-                className={`h-[3px] transition-all duration-500 rounded-full ${
+                className={`h-0.75 transition-all duration-500 rounded-full ${
                   activeProject === i ? "w-10 bg-white" : "w-2 bg-white/20"
                 }`}
               />
@@ -123,7 +123,7 @@ export default function Projects() {
               {/* Main image */}
               <div className="absolute inset-0 flex items-center justify-center p-8 md:p-16">
                 <div
-                  className="relative w-full max-w-xl aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-700"
+                  className="relative w-full max-w-xl aspect-16/10 rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-700"
                   style={{
                     transform:
                       activeProject === index
@@ -188,7 +188,7 @@ export default function Projects() {
         ))}
 
         {/* Grain overlay */}
-        <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay">
+        <div className="fixed inset-0 pointer-events-none z-100 opacity-[0.03] mix-blend-overlay">
           <svg viewBox="0 0 200 200">
             <filter id="noise">
               <feTurbulence

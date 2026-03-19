@@ -70,7 +70,7 @@ const Header = () => {
                     className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 hover:text-white transition-colors relative group"
                   >
                     {link.name}
-                    <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-0 h-px bg-linear-to-r from-purple-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
@@ -101,7 +101,7 @@ const Header = () => {
               />
 
               {/* Subtle hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
 
