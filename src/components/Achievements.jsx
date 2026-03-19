@@ -105,7 +105,7 @@ const Achievements = () => {
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] mb-6 block text-white/40">
             Milestones & Recognition
           </span>
-          <h1 className="text-7xl md:text-9xl font-black leading-[0.9] mb-8 tracking-tighter">
+          <h1 className="text-5xl md:text-9xl font-black leading-[0.9] mb-8 tracking-tighter">
             Achieve<span className="text-white/20">ments.</span>
           </h1>
         </div>
@@ -124,10 +124,10 @@ const Achievements = () => {
                 className="w-screen h-screen shrink-0 flex items-center justify-center px-12 md:px-32"
               >
                 <div
-                  className={`relative w-full max-w-300 aspect-video md:aspect-21/9 rounded-4xl overflow-hidden shadow-2xl flex flex-col md:flex-row bg-linear-to-br ${item.color} border border-white/10`}
+                  className={`relative w-full max-w-300 md:aspect-21/9 rounded-4xl overflow-hidden shadow-2xl flex flex-col md:flex-row bg-linear-to-br ${item.color} border border-white/10`}
                 >
                   {/* Image Content */}
-                  <div className="w-full md:w-2/3 relative h-full group">
+                  <div className="w-full max-md:h-50 md:w-2/3 relative h-full group">
                     <img
                       ref={(el) => (imageRefs.current[idx] = el)}
                       src={item.image}
@@ -145,8 +145,8 @@ const Achievements = () => {
                   </div>
 
                   {/* Text Content */}
-                  <div className="w-full md:w-1/3 p-12 flex flex-col justify-center text-white bg-black/40 backdrop-blur-sm">
-                    <h3 className="text-4xl font-black mb-6 leading-tight">
+                  <div className="w-full max-md:h-50 h-full md:w-1/3 p-4 md:p-12 flex flex-col justify-center text-white bg-black/40 backdrop-blur-sm">
+                    <h3 className="text-3xl md:text-4xl font-black mb-6 leading-tight">
                       {item.title}
                     </h3>
                     <p className="text-sm text-white/70 leading-relaxed mb-8 font-light">

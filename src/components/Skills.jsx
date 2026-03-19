@@ -88,101 +88,32 @@ export default function Skills() {
     <section
       ref={wrapperRef}
       id="skills"
-      className="whatido-section"
-      style={{
-        position: "relative",
-        padding: "10vh 0",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        minHeight: "150vh",
-      }}
+      className="whatido-section py-[10vh] relative flex justify-between items-start min-h-[150vh]"
     >
-      <div
-        style={{
-          position: "sticky",
-          top: "50vh", 
-          transform: "translateY(-50%)",
-          width: "25%",
-          paddingLeft: "5%",
-          zIndex: 1,
-        }}
-      >
-        <div style={{ position: "relative" }}>
-          <h2
-            style={{
-              fontSize: "clamp(3rem, 6vw, 5rem)", 
-              lineHeight: 0.9,
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-              color: "#fff",
-              marginBottom: "1rem",
-            }}
-          >
+      <div className="sticky top-0 sm:top-[50vh] translate-y-[-50%] w-[25%] pl-[5%] z-1">
+        <div className="relative">
+          <h2 className="text-[clamp(3rem,6vw,5rem)] leading-[0.9] font-extrabold tracking-[-0.02em] text-white mb-4">
             SKILLS.
             <br />
           </h2>
         </div>
       </div>
 
-      <div
-        style={{
-          width: "40%", 
-          display: "flex",
-          flexDirection: "column",
-          gap: "8rem", 
-          paddingTop: "30vh",
-          paddingBottom: "30vh",
-          zIndex: 1,
-          alignItems: "center",
-        }}
-      >
+      <div className="max-sm:-translate-x-[60%] w-[40%] flex flex-col gap-32 pt-[30vh] pb-[30vh] z-1 items-center">
         {skillsData.map((group, groupIndex) => (
           <div
             key={groupIndex}
             id={`category-${groupIndex}`}
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "4rem",
-            }}
+            className="w-full flex flex-col gap-16"
           >
             {group.items.map((tech, i) => (
               <div
                 key={`${groupIndex}-${i}`}
                 ref={(el) => cardsRef.current.push(el)}
-                className="tech-item"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center", 
-                  opacity: 0,
-                  cursor: "default",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  width: "fit-content",
-                }}
+                className="tech-item flex items-center justify-center opacity-0 cursor-auto mx-auto w-fit"
               >
-                <div
-                  className="dot"
-                  style={{
-                    width: "12px",
-                    height: "12px",
-                    background: "#333",
-                    borderRadius: "50%",
-                    marginRight: "2rem",
-                    transition: "all 0.3s ease",
-                  }}
-                />
-                <h3
-                  style={{
-                    fontSize: "clamp(2rem, 3.5vw, 3rem)",
-                    fontWeight: 500,
-                    color: "#888",
-                    transition: "color 0.3s ease",
-                  }}
-                >
+                <div className="dot w-3 h-3 bg-[#333] rounded-[50%] mr-8 transition-all duration-300 ease-in-out" />
+                <h3 className="text-[clamp(2rem,3.5vw,3rem)] font-medium text-[#888] transition-colors duration-300 ease-in-out">
                   {tech}
                 </h3>
               </div>
@@ -191,32 +122,11 @@ export default function Skills() {
         ))}
       </div>
 
-      <div
-        style={{
-          position: "sticky",
-          top: "50vh",
-          transform: "translateY(-50%)",
-          width: "30%",
-          paddingRight: "5%",
-          zIndex: 1,
-          textAlign: "right", 
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
+      <div className="sticky top-[50vh] -translate-y-1/2 w-[30%] pr-[5%] z-1 text-right flex justify-end">
         <h3
           ref={categoryRef}
-          style={{
-            fontSize: "clamp(2.5rem, 5vw, 3rem)", 
-            lineHeight: 1,
-            fontWeight: 700,
-            color: "rgba(255,255,255,0.4)",
-            textTransform: "uppercase",
-            letterSpacing: "0.05em",
-            textAlign: "right",
-          }}
-        >
-        </h3>
+          className="text-[clamp(2.5rem,5vw,3rem)] leading-none font-bold text-[rgba(255,255,255,0.4)] uppercase tracking-[0.05em] text-right"
+        ></h3>
       </div>
     </section>
   );

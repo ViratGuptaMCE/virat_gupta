@@ -35,7 +35,7 @@ const ContactSection = () => {
   const currentSection = activeTab ? sections[activeTab] : null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-100  p-8 font-sans">
+    <div className="flex flex-col items-center justify-center min-h-100 p-8 font-sans">
       <div className="relative group ">
         {/* Floating Label (Animated Text) */}
         <div
@@ -52,8 +52,8 @@ const ContactSection = () => {
         </div>
 
         {/* Main Pill Address Bar */}
-        <div className="bg-white px-8 py-5 rounded-4xl shadow-xl shadow-zinc-200/50 flex items-center justify-center min-w-[320px] border border-zinc-100 relative z-10">
-          <div className="text-2xl font-medium tracking-tight flex whitespace-nowrap">
+        <div className="bg-white px-4 py-2 sm:px-8 sm:py-5 rounded-4xl shadow-xl shadow-zinc-200/50 flex items-center justify-center sm:min-w-[320px] border border-zinc-100 relative z-10">
+          <div className="text-xl sm:text-2xl font-medium tracking-tight flex whitespace-nowrap">
             {/* Part 1: hello (linked to Mail) */}
 
             <span
@@ -104,7 +104,7 @@ const ContactSection = () => {
 
         {/* The Connective Dashed Box */}
         <div
-          className={`absolute  top-10 ${activeTab === "linkedin" ? "w-30 left-10 " : "w-70 left-1/2 -translate-x-1/2"} h-25 border-2 border-dashed rounded-lg transition-all duration-300 z-0
+          className={`absolute top-5 sm:top-10 ${activeTab === "linkedin" ? "sm:w-30 w-25 left-5 sm:left-10 " : "w-60 sm:w-70 left-1/2 -translate-x-1/2"} h-25 border-2 border-dashed rounded-lg transition-all duration-300 z-0
             ${activeTab ? "opacity-100" : "opacity-0"}
             ${currentSection?.borderColor}
           `}

@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  ArrowUpRight,
-  Heart,
-  MapPin,
-  Phone
-} from "lucide-react";
+import { ArrowUpRight, Heart, MapPin, Phone } from "lucide-react";
 import ContactSection from "./Contact";
 
 const Footer = () => {
@@ -13,8 +8,8 @@ const Footer = () => {
   const textRef = useRef(null);
   const [gsapLoaded, setGsapLoaded] = useState(false);
 
+  // Load GSAP and ScrollTrigger via CDN
   useEffect(() => {
-    // Load GSAP and ScrollTrigger via CDN to ensure compatibility
     const loadScripts = async () => {
       const loadScript = (src) => {
         return new Promise((resolve) => {
@@ -46,7 +41,7 @@ const Footer = () => {
 
     const footer = footerRef.current;
     const textElements = textRef.current.querySelectorAll(".animate-text");
-   
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footer,
@@ -59,7 +54,7 @@ const Footer = () => {
       textElements,
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" },
-    )
+    );
 
     // Magnetic effect for the main CTA
     const handleMouseMove = (e) => {
@@ -103,54 +98,54 @@ const Footer = () => {
     };
   }, [gsapLoaded]);
 
-
   return (
     <div className="flex flex-col font-sans" id="contact">
       <footer
         ref={footerRef}
-        className="relative bg-black text-white overflow-hidden pb-10"
+        className="relative bg-black text-white overflow-hidden pb-10 pt-16 md:pt-20 lg:pt-24"
       >
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Main grid: stack on mobile, two columns on large screens */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Column: Heading & CTA */}
-            <div ref={textRef}>
-              <h2 className="animate-text text-5xl md:text-7xl font-bold tracking-tight mb-8">
-                <span className="text-cyan-400">Let's work </span>
+            <div ref={textRef} className="space-y-6 mx-auto md:space-y-8">
+              <h2 className="animate-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+                <span className="text-cyan-400">Let's work </span><br />
                 <span className="text-white/70">together.</span>
               </h2>
 
-              <div className="flex flex-col gap-4 text-zinc-200 mt-10">
-                {/* Address */}
+              {/* Address & optional contact info */}
+              <div className="flex flex-col gap-3 text-zinc-200 text-sm sm:text-base">
                 <div className="flex items-center gap-2">
-                  <MapPin size={20} className="text-cyan-500" />
-                  <span>Delhi , India</span>
+                  <MapPin size={20} className="text-cyan-500 flex-shrink-0" />
+                  <span>Delhi, India</span>
                 </div>
-
+                {/* You can add more contact items here if needed */}
               </div>
             </div>
 
-            {/* Right Column: Links */}
+            {/* Right Column: Contact Section (already responsive) */}
             <ContactSection />
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2 text-slate-500 text-sm text-center md:text-left">
+          <div className="border-t border-slate-800 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500">
+            <div className="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left">
               <span>© {new Date().getFullYear()} Virat Gupta</span>
-              <span className="hidden md:inline">•</span>
+              <span className="hidden sm:inline">•</span>
               <span className="flex items-center gap-1">
                 Built with{" "}
                 <Heart size={14} className="text-red-500 fill-current" /> by a
                 curious mind
               </span>
             </div>
-
+            {/* Optional social links can go here */}
           </div>
         </div>
 
-        {/* Large Scrolling Text Backdrop */}
+        {/* Large Scrolling Text Backdrop - responsive size */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden opacity-[0.1] pointer-events-none select-none">
-          <div className="whitespace-nowrap text-[5vw] font-black uppercase tracking-tighter leading-none translate-y-1/4">
+          <div className="whitespace-nowrap text-[8vw] sm:text-[6vw] md:text-[5vw] font-black uppercase tracking-tighter leading-none translate-y-1/4">
             . Learner • Developer • Creator • Designer • Developer • Creator
           </div>
         </div>

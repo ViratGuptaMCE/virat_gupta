@@ -6,16 +6,16 @@ const Hero = () => {
 
   return (
     <main
-      className=" min-h-screen p-4 md:p-12 lg:p-20 font-sans selection:bg-cyan-500 selection:text-black overflow-hidden relative"
+      className="p-4 md:p-12 lg:p-20 font-sans selection:bg-cyan-500 selection:text-black overflow-hidden relative"
       id="about"
     >
       {/* The Gooey Container - Applies the viscous filter to all children */}
-      <div className="max-w-7xl mx-auto flex justify-between items-center gap-y-0">
+      <div className="max-w-7xl mx-auto flex max-md:flex-col justify-between items-center gap-y-0">
         {/* 1. INTRO – redesigned with dark gradient and code snippet feel */}
-        <div className="flex-2 flex flex-col">
+        <div className="flex-2 max-md:p-5 flex flex-col">
           <header className=" text-white p-10 w-full flex flex-col justify-between group transition-all duration-700 relative z-30 ">
-            <div className="relative">
-              <h1 className="text-6xl lg:text-8xl font-mono font-bold tracking-tighter relative">
+            <div className="relative p-4">
+              <h1 className="text-5xl lg:text-8xl font-mono font-bold tracking-tighter relative">
                 {" "}
                 Virat_Gupta
               </h1>
@@ -32,7 +32,7 @@ const Hero = () => {
           </header>
           <section className="w-full p-8 flex flex-col relative group z-20">
             {/* Bio + Academics */}
-            <div className="z-10 max-w-lg">
+            <div className="z-10 p-4 max-w-lg">
               <p className="text-yellow-400 uppercase">
                 3rd year undergraduate student
               </p>

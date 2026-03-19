@@ -28,7 +28,7 @@ export default function Timeline() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate Main Line drawing down
+      // Animate main line drawing down
       gsap.fromTo(
         lineRef.current,
         { height: "0%" },
@@ -44,10 +44,10 @@ export default function Timeline() {
         },
       );
 
-      // Animate Items
+      // Animate each timeline item
       const items = gsap.utils.toArray(".timeline-item");
-      items.forEach((item, index) => {
-        // Fade in and float up effect
+      items.forEach((item) => {
+        // Content card fade + float
         gsap.fromTo(
           item.querySelector(".content-card"),
           { autoAlpha: 0, y: 50, filter: "blur(10px)" },
@@ -66,7 +66,7 @@ export default function Timeline() {
           },
         );
 
-        // Animate Milestone Star
+        // Milestone star pop
         gsap.fromTo(
           item.querySelector(".milestone-star"),
           { scale: 0, opacity: 0 },
@@ -90,164 +90,108 @@ export default function Timeline() {
   return (
     <section
       ref={sectionRef}
-      className="timeline-section"
       id="experience"
-      style={{
-        position: "relative",
-        minHeight: "100vh", // Ensure it takes at least screen height
-        padding: "15vh 5%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
+      className="relative min-h-screen py-20 md:py-32 px-4 sm:px-6 lg:px-8 flex flex-col items-center overflow-hidden"
     >
-      <h2
-        style={{
-          marginBottom: "8rem",
-          fontSize: "clamp(3rem, 5vw, 4rem)",
-          color: "#fff",
-          fontWeight: 800,
-          letterSpacing: "-0.02em",
-          textAlign: "center",
-          textTransform: "uppercase",
-        }}
-      >
+      <h2 className="mb-16 md:mb-24 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase text-center">
         Experiences.
       </h2>
 
-      <div style={{ width: "100%", maxWidth: "1200px", position: "relative" }}>
-        {/* Track Line (Background) */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "1px",
-            background: "rgba(255, 255, 255, 0.1)",
-            zIndex: 0,
-          }}
-        />
+      <div className="relative w-full max-w-6xl mx-auto">
+        {/* Background track line */}
+        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-white/10 z-0" />
 
-        {/* Active Line (Animated) */}
+        {/* Animated active line */}
         <div
           ref={lineRef}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "2px", // Slightly thicker
-            background:
-              "linear-gradient(to bottom, transparent, #fff, transparent)",
-            height: "0%", // Starts at 0
-            zIndex: 0,
-            boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)",
-          }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-transparent via-white to-transparent shadow-[0_0_15px_rgba(255,255,255,0.5)] z-0"
+          style={{ height: "0%" }}
         />
 
-        {/* Items */}
-        {history.map((item, index) => (
-          <div
-            key={index}
-            className="timeline-item"
-            style={{
-              display: "flex",
-              justifyContent: index % 2 === 0 ? "flex-end" : "flex-start",
-              paddingBottom: "6rem", // Default spacing
-              width: "50%",
-              marginLeft: index % 2 === 0 ? 0 : "auto",
-              paddingRight: index % 2 === 0 ? "4rem" : 0,
-              paddingLeft: index % 2 === 0 ? 0 : "4rem",
-              position: "relative",
-            }}
-          >
-            {/* Milestone Star on the line */}
-            <div
-              className="milestone-star"
-              style={{
-                position: "absolute",
-                top: "0",
-                [index % 2 === 0 ? "right" : "left"]: "-8px", // Center on line (line width 2px, star 16px -> shift 7px + margin)
-                // Actually let's just use calc
-                [index % 2 === 0 ? "right" : "left"]: "auto",
-                left: index % 2 === 0 ? "auto" : "-8px",
-                right: index % 2 === 0 ? "-8px" : "auto",
+        {/* Timeline items */}
+        {history.map((item, index) => {
+          const isEven = index % 2 === 0;
 
-                width: "16px",
-                height: "16px",
-                background: "#fff",
-                borderRadius: "50%",
-                zIndex: 2,
-                boxShadow: "0 0 20px rgba(255, 255, 255, 0.8)",
-                border: "3px solid #050505", // Hole punch effect if desired, or solid
-              }}
-            />
-
-            {/* Content Card */}
+          return (
             <div
-              className="content-card"
-              style={{
-                width: "100%",
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
-                border: "1px solid rgba(255,255,255,0.05)",
-                backdropFilter: "blur(10px)",
-                borderRadius: "1.5rem",
-                padding: "2.5rem",
-                transition: "all 0.3s ease",
-                cursor: "default",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                e.currentTarget.style.background =
-                  "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)";
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 10px 30px -10px rgba(0,0,0,0.5)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                e.currentTarget.style.background =
-                  "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
+              key={index}
+              className={`
+                timeline-item relative flex flex-col
+                ${isEven ? "md:items-end" : "md:items-start"}
+                w-full md:w-1/2
+                ${isEven ? "md:ml-auto md:pr-8 lg:pr-12" : "md:mr-auto md:pl-8 lg:pl-12"}
+                mb-16 last:mb-0
+              `}
             >
-              <span
+              {/* Milestone star – positioned on the line */}
+              <div
+                className="
+                  milestone-star absolute top-0 z-10
+                  w-4 h-4 bg-white rounded-full
+                  border-2 border-black
+                  shadow-[0_0_20px_rgba(255,255,255,0.8)]
+                  md:left-auto md:right-auto
+                "
                 style={{
-                  display: "inline-block",
-                  color: "#888",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  marginBottom: "0.75rem",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  padding: "0.25em 0.75em",
-                  borderRadius: "100px",
+                  left: isEven ? "auto" : "-0.5rem",
+                  right: isEven ? "-0.5rem" : "auto",
+                  // On mobile, we override to left positioning later via media query or JS
                 }}
+              />
+
+              {/* Content card */}
+              <div
+                className="
+                  content-card w-full max-w-md
+                  bg-gradient-to-br from-white/5 to-white/3
+                  border border-white/5
+                  backdrop-blur-md
+                  rounded-3xl p-6 md:p-8
+                  transition-all duration-300
+                  hover:border-white/20
+                  hover:bg-gradient-to-br hover:from-white/8 hover:to-white/4
+                  hover:-translate-y-1
+                  hover:shadow-xl
+                  cursor-default
+                  relative overflow-hidden
+                "
               >
-                {item.year}
-              </span>
-              <h3
-                style={{
-                  fontSize: "1.75rem",
-                  marginBottom: "0.75rem",
-                  color: "#fff",
-                  lineHeight: 1.2,
-                }}
-              >
-                {item.role}
-              </h3>
-              <p style={{ color: "#aaa", fontSize: "1rem" }}>{item.company}</p>
+                <span className="inline-block text-xs font-semibold tracking-wider text-zinc-400 border border-white/10 px-3 py-1 rounded-full mb-3">
+                  {item.year}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
+                  {item.role}
+                </h3>
+                <p className="text-zinc-400 text-base md:text-lg">
+                  {item.company}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
+
+      {/* Mobile timeline adjustment: line on left, stars on left, all cards on right */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .timeline-item {
+            align-items: flex-start !important;
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 2rem !important;
+            padding-right: 0 !important;
+          }
+          .milestone-star {
+            left: -0.5rem !important;
+            right: auto !important;
+          }
+          .absolute.left-1\\/2 {
+            left: 1rem !important;
+            transform: translateX(0) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
