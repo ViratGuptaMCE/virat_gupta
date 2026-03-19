@@ -45,7 +45,7 @@ const Header = () => {
           {/* LEFT SIDE: LOGO (Stays put) */}
           <div className="flex items-center group cursor-pointer relative z-10">
             <div className="relative">
-              <div className="relative rounded-lg transition-colors" >
+              <div className="relative rounded-lg transition-colors">
                 <a href="#about">
                   <img src="/logo_copy.svg" alt="logo" className="w-20 h-20" />
                 </a>
@@ -90,18 +90,18 @@ const Header = () => {
       }`}
             >
               <span
-                className={`relative z-10 text-sm font-bold ${isScrolled ? "text-white" : "text-black"}`}
+                className={`relative z-10 text-sm font-bold group-hover:text-white ${isScrolled ? "text-white" : "text-black"}`}
               >
                 Resume
               </span>
               <Download
-                className={`w-4 h-4 transition-all duration-300 group-hover:translate-y-0.5 ${
+                className={`w-4 h-4 transition-all duration-300 group-hover:text-white ${
                   isScrolled ? "text-white" : "text-black"
                 }`}
               />
 
               {/* Subtle hover overlay */}
-              <div className="absolute inset-0 bg-linear-to-r from-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-zinc-800 to-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
 
